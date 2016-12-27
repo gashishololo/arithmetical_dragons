@@ -14,25 +14,32 @@ public:
     static const int default_attackForce = 20;
 
     Hero(int health = default_health, int aForce = default_attackForce)
-        :Unit(health, aForce), scores(0)
+            :Unit(health, aForce), scores(0)
     {}
     void attack (Dragon &drago)
     {
         std::string q = drago.generateQuestion();
-        std::cout << "question: " << q;
+        std::cout << "вопрос: " << q;
         int answer;
         std::cin >> answer;
         if (drago.checkAnswer(answer))
         {
             drago.getDamage(attackForce);
-            std::cout << "Hit you, dragon!" << std::endl;
+            std::cout << "Получай, дракон!" << std::endl;
         }
         else
         {
             getDamage(drago.attackForce);
-            std::cout << "Hero suffers..." << std::endl;
+            std::cout << "Герой огребает" << std::endl;
         }
     }
+    int getScores(){
+        return scores;
+    }
+    void addScores(int scores){
+        scores+=1;
+    }
+
 };
 
 #endif // HERO_H_INCLUDED
