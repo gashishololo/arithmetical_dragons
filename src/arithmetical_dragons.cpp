@@ -12,8 +12,8 @@ using namespace std;
 
 void showHealth(const Hero &hero, const Dragon &dragon)
 {
-    cout << "Hero health: " << hero.getHealth()
-        << ", Dragon health: " << dragon.getHealth() << endl;
+    cout << "Ваше здоровье: " << hero.getHealth()
+        << ", Здоровье дракона: " << dragon.getHealth() << endl;
 }
 
 list<Dragon*> generateDragonList()
@@ -34,7 +34,7 @@ bool playGame(Hero &hero, list<Dragon*> &dragons)
     for (list<Dragon*>::iterator dragon = dragons.begin();
             dragon != dragons.end(); dragon++)
     {
-        cout << "You have met a new " << (*dragon)->color() << " dragon. Fight!" << endl;
+        cout << "Вы встретили дракона " << (*dragon)->color() << " цвета. Пора умертвить его!" << endl;
 
         while ((*dragon)->isAlive() && hero.isAlive())
         {
@@ -48,7 +48,7 @@ bool playGame(Hero &hero, list<Dragon*> &dragons)
         else // dragon was killed!
         {
             hero.addScores(Dragon::c_killScores);
-            cout << "Ough! You have killed a dragon!" << endl;
+            cout << "Ееее! Дракон повержен!" << endl;
         }
     }
     return gameOver;
@@ -63,11 +63,11 @@ int main()
 
     if (gameResult)
     {
-        cout << "Game over! Your score is: " << hero.getScores() << endl;
+        cout << "Игра окончена. Ваш счет: " << hero.getScores() << endl;
     }
     else
     {
-        cout << "You win! Your score is: " << hero.getScores() << endl;
+        cout << "Победа! Ваш счет: " << hero.getScores() << endl;
     }
     for (list<Dragon*>::iterator dragon = dragons.begin();
             dragon != dragons.end(); dragon++)
